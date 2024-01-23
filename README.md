@@ -66,9 +66,10 @@ docker build -t apache-fake-log-gen .
 
 Run the application, and provide application command line arguments as Docker CMD args:
 ```
-docker run --rm apache-fake-log-gen -n 10 -s 1
+docker run --rm -v "$(pwd)":/app apache-fake-log-gen
 ```
-NOTE: `-o LOG` option does not work in this case.
+
+The output is appended to `output.log` file
 
 ## Requirements
 * Python 2.7
